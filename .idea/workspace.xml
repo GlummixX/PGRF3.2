@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1919dcac-9130-43f7-b393-12c9d53bd977" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PGRF3.2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setting.cap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings_desktop.cap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shaders/terrain.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shaders/terrain.vert" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/annotations/NotNull.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/annotations/Nullable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLBuffers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLModelOBJ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLRenderTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTexImage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTexImageByte.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTexImageFloat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTextRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTexture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTexture2D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTextureCube.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTextureVolume.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/ShaderUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/ToFloatArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lwjglutils/ToIntArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/app/GridScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/global/AbstractRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/global/GLCamera.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/global/GluUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/global/GlutUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/global/LwjglWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/model/Axis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/model/Cube.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/model/TerrainGrid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/utils/AveragingCircularBuffer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/utils/FpsLimiter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/utils/Mode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape/utils/SceneEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Bicubic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Camera.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Col.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Compare.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Cubic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3Identity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3Rot2D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3RotX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3RotY.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3RotZ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3Scale2D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3Transl2D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4Identity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4OrthoRH.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4PerspRH.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4Rot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4RotX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4RotXYZ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4RotY.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4RotZ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4Scale.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4Transl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4ViewRH.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Point2D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Point3D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Quat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Vec1D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Vec2D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transforms/Vec3D.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2YCnZP3bYG8wgXGUpJpJMsIADVJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="shape.Main" />
+      <module name="PGRF3.2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="shape.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1919dcac-9130-43f7-b393-12c9d53bd977" name="Changes" comment="" />
+      <created>1700038487811</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700038487811</updated>
+    </task>
+    <servers />
+  </component>
+</project>
