@@ -12,6 +12,7 @@ import org.lwjgl.glfw.GLFWScrollCallback;
 import org.lwjgl.opengl.GL;
 import shape.global.AbstractRenderer;
 import shape.model.Axis;
+import shape.model.Character;
 import shape.model.TerrainGrid;
 import shape.utils.FpsLimiter;
 import transforms.*;
@@ -30,7 +31,7 @@ import static org.lwjgl.opengl.GL40.GL_PATCH_VERTICES;
 import static org.lwjgl.opengl.GL40.glPatchParameteri;
 
 enum Mode {
-    Fill, Lines, Dots;
+    Fill, Lines;
 
     public Mode next() {
         Mode[] array = Mode.values();
@@ -41,30 +42,24 @@ enum Mode {
 
 public class GridScene extends AbstractRenderer {
     double ox, oy;
-    Camera cam = new Camera().withPosition(new Vec3D(-0.7, 0.5, 0.5)).withZenith(-0.4);
-    Mat4 proj = new Mat4PerspRH(Math.PI / 4, (double) height / width, 0.01, 1000.0);
-    int shaderProgram, objShader;
+    Character character = new Character(new Camera().withPosition(new Vec3D(0, 0, 128.)).withZenith(-0.4), "res/map.bmp");
+    Mat4 proj = new Mat4PerspRH(Math.toRadians(100), (double) height / width, 0.01, 500.);
+    int shaderProgram;
+    int tes = 23;
     private boolean renderDocDebug;
     private boolean changeScene = false;
     private HashMap<String, Integer> gridShaders;
     private FpsLimiter limiter;
-    private TerrainGrid gridList;
-    private TerrainGrid gridStrip;
     private TerrainGrid grid;
     private boolean manual = false;
     private Axis axis;
     private HashMap<String, ArrayList<String>> info;
-    private boolean list = true;
     private boolean persp = true;
-    private double speed = 0.01;
+    private double speed = 2.5;
     private double zoom = 32;
     private boolean mouseButton1 = false;
     private Mode mode = Mode.Fill;
-    private String aciveShaderName = "Flat";
-    private float time = 0;
-    private OGLModelOBJ model;
-    private Mat4 modelTransf;
-    private OGLTexture2D datamap;
+    private OGLTexture2D datamap, colormap;
 
     public GridScene(int width, int height, boolean debug) {
         super(width, height);
@@ -73,17 +68,13 @@ public class GridScene extends AbstractRenderer {
         gridShaders = new HashMap<>();
 
         info = new HashMap<>();
-        info.put("scene", new ArrayList<>(List.of("[TAB] Scene: Grid", "")));
+        info.put("gravity", new ArrayList<>(List.of("Gravity:", String.valueOf(character.isGravity()))));
+        info.put("maxTess", new ArrayList<>(List.of("Max Tesselation:", String.valueOf(tes))));
         info.put("mode", new ArrayList<>(List.of("[M] Render mode:", "")));
-        info.put("grid", new ArrayList<>(List.of("[G] Grid type:", "")));
         info.put("projection", new ArrayList<>(List.of("[P] Projection:", "")));
-        info.put("shader", new ArrayList<>(List.of("[R] Grid shader:", "Flat")));
-        info.put("speed", new ArrayList<>(List.of("Speed:", "0.01", " Zoom:", "32")));
-        info.put("manual", new ArrayList<>(List.of("[O +/-]Manual control:", "")));
+        info.put("speed", new ArrayList<>(List.of("Zoom:", "32")));
 
         info.get("mode").set(1, mode.toString());
-        info.get("manual").set(1, String.valueOf(manual));
-        info.get("grid").set(1, list ? "List" : "Strip");
         info.get("projection").set(1, persp ? "Persp" : "Ortho");
     }
 
@@ -100,51 +91,38 @@ public class GridScene extends AbstractRenderer {
                             info.get("mode").set(1, mode.toString());
                         }
                         case GLFW_KEY_KP_ADD -> {
-                            time = (time + 0.01F) % (float) Math.PI;
+                            tes++;
+                            info.get("maxTess").set(1, String.valueOf(tes));
                         }
                         case GLFW_KEY_KP_SUBTRACT -> {
-                            time = (time - 0.01F) % (float) Math.PI;
+                            tes--;
+                            info.get("maxTess").set(1, String.valueOf(tes));
                         }
                         case GLFW_KEY_O -> {
                             manual = !manual;
                             info.get("manual").set(1, String.valueOf(manual));
                         }
-                        case GLFW_KEY_TAB -> {
-                            changeScene = true;
-                            glfwSetWindowShouldClose(window, true);
-                        }
                         case GLFW_KEY_G -> {
-                            if (list) {
-                                grid = gridStrip;
-                                list = false;
-                            } else {
-                                grid = gridList;
-                                list = true;
-                            }
-                            info.get("grid").set(1, list ? "List" : "Strip");
+                            character.setGravity(!character.isGravity());
+                            info.get("gravity").set(1, String.valueOf(character.isGravity()));
                         }
                         case GLFW_KEY_P -> {
                             if (persp) {
                                 proj = new Mat4OrthoRH(width / zoom, height / zoom, 0.01, 1000.0);
                                 persp = false;
                             } else {
-                                proj = new Mat4PerspRH(Math.PI / 4, (double) height / width, 0.01, 1000.0);
+                                proj = new Mat4PerspRH(Math.toRadians(100), (double) height / width, 0.01, 500.);
                                 persp = true;
                             }
                             info.get("projection").set(1, persp ? "Persp" : "Ortho");
                         }
-                        case GLFW_KEY_R -> {
-                            List<String> l = new ArrayList<>(gridShaders.keySet());
-                            aciveShaderName = l.get(((l.indexOf(aciveShaderName) + 1) % l.size()));
-                            shaderProgram = gridShaders.get(aciveShaderName);
-                            info.get("shader").set(1, aciveShaderName);
-                        }
-                        case GLFW_KEY_W -> cam = cam.forward(speed);
-                        case GLFW_KEY_D -> cam = cam.right(speed);
-                        case GLFW_KEY_S -> cam = cam.backward(speed);
-                        case GLFW_KEY_A -> cam = cam.left(speed);
-                        case GLFW_KEY_LEFT_CONTROL -> cam = cam.down(speed);
-                        case GLFW_KEY_LEFT_SHIFT -> cam = cam.up(speed);
+                        case GLFW_KEY_SPACE -> character.jump();
+                        case GLFW_KEY_W -> character.forward(speed);
+                        case GLFW_KEY_D -> character.right(speed);
+                        case GLFW_KEY_S -> character.backward(speed);
+                        case GLFW_KEY_A -> character.left(speed);
+                        case GLFW_KEY_LEFT_CONTROL -> character.down(speed);
+                        case GLFW_KEY_LEFT_SHIFT -> character.up(speed);
                     }
                 }
             }
@@ -153,12 +131,9 @@ public class GridScene extends AbstractRenderer {
         glfwScrollCallback = new GLFWScrollCallback() {
             @Override
             public void invoke(long window, double dx, double dy) {
-                if (persp) {
-                    speed = Math.max(Math.min(speed + dy * 0.02, 1.0), 0.01);
-                    info.get("speed").set(1, String.format("%.2f", speed));
-                } else {
+                if (!persp) {
                     zoom += zoom * dy * 0.1;
-                    info.get("speed").set(3, String.format("%.0f", zoom));
+                    info.get("speed").set(1, String.format("%.0f", zoom));
                     proj = new Mat4OrthoRH(width / zoom, height / zoom, 0.01, 1000.0);
                 }
             }
@@ -168,7 +143,7 @@ public class GridScene extends AbstractRenderer {
             @Override
             public void invoke(long window, double x, double y) {
                 if (mouseButton1) {
-                    cam = cam.addAzimuth((double) Math.PI * (ox - x) / width).addZenith((double) Math.PI * (oy - y) / width);
+                    character = character.addAzimuth((double) Math.PI * (ox - x) / width).addZenith((double) Math.PI * (oy - y) / width);
                     ox = x;
                     oy = y;
                 }
@@ -196,7 +171,7 @@ public class GridScene extends AbstractRenderer {
                     glfwGetCursorPos(window, xBuffer, yBuffer);
                     double x = xBuffer.get(0);
                     double y = yBuffer.get(0);
-                    cam = cam.addAzimuth((double) Math.PI * (ox - x) / width).addZenith((double) Math.PI * (oy - y) / width);
+                    character = character.addAzimuth((double) Math.PI * (ox - x) / width).addZenith((double) Math.PI * (oy - y) / width);
                     ox = x;
                     oy = y;
                 }
@@ -213,33 +188,37 @@ public class GridScene extends AbstractRenderer {
         limiter = new FpsLimiter();
         glClearColor(0.4f, 0.4f, 0.5f, 1.0f);
 
-        shaderProgram = ShaderUtils.loadProgram("/terrain");
+        shaderProgram = ShaderUtils.loadProgram("/tessel_terrain");
 
-        model = new OGLModelOBJ("/obj/ducky.obj");
-        modelTransf = new Mat4Scale(0.05).mul(new Mat4RotX(1.5)).mul(new Mat4Transl(new Vec3D(0.5, 0.5, 0)));
         axis = new Axis();
         try {
             datamap = new OGLTexture2D("map.bmp");
+            colormap = new OGLTexture2D("colormap.bmp");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        grid = new TerrainGrid(100,100F);
+        grid = new TerrainGrid(32, 1024F);
         glEnable(GL_DEPTH_TEST);
+        glfwWindowHint(GLFW_SAMPLES, 4);
+        glEnable(GL_MULTISAMPLE);
         glPatchParameteri(GL_PATCH_VERTICES, 4);
     }
 
     @Override
     public void display() {
+        character.gravity();
         //shared across scenes
         glViewport(0, 0, width, height);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         glUseProgram(shaderProgram);
         datamap.bind(shaderProgram, "datamap", 0);
-        glUniform3fv(glGetUniformLocation(shaderProgram,"cameraPos"), ToFloatArray.convert(cam.getPosition()));
-        glUniformMatrix4fv(glGetUniformLocation(shaderProgram,"view"), false, ToFloatArray.convert(cam.getViewMatrix()));
-        glUniformMatrix4fv(glGetUniformLocation(shaderProgram,"projection"), false, ToFloatArray.convert(proj));
+        colormap.bind(shaderProgram, "colormap", 1);
+        glUniform1i(glGetUniformLocation(shaderProgram, "maxTess"), tes);
+        glUniform3fv(glGetUniformLocation(shaderProgram, "cameraPos"), ToFloatArray.convert(character.getPosition()));
+        glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "view"), false, ToFloatArray.convert(character.getViewMatrix()));
+        glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "projection"), false, ToFloatArray.convert(proj));
 
         switch (mode) {
             case Fill -> {
@@ -252,10 +231,9 @@ public class GridScene extends AbstractRenderer {
                 glPolygonMode(GL_BACK, GL_LINE);
                 grid.draw(shaderProgram);
             }
-            case Dots -> grid.draw(shaderProgram, GL_POINTS);
         }
 
-        axis.draw(cam.getViewMatrix().mul(proj));
+        axis.draw(character.getViewMatrix().mul(proj));
 
         if (!renderDocDebug) {
             text();
@@ -273,17 +251,16 @@ public class GridScene extends AbstractRenderer {
         }
     }
 
-    public boolean nextScene(){
+    public boolean nextScene() {
         return changeScene;
     }
 
     @Override
-    public void dispose(){
-        for (int s: gridShaders.values()) {
+    public void dispose() {
+        for (int s : gridShaders.values()) {
             glDeleteProgram(s);
         }
         grid.unbind();
-        model.getBuffers().unbind();
     }
 
 }

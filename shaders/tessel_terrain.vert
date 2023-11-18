@@ -2,10 +2,8 @@
 
 layout (location = 0) in vec2 inPosition;
 
-out vec2 uvs;
-
 void main()
 {
-    gl_Position = vec4(inPosition.xy, 1.0);
-    uvs = vec2(0.);
+    vec4 position = vec4(inPosition.x, inPosition.y, 0, 1.0);
+    gl_Position = position;
 }
