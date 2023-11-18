@@ -5,7 +5,7 @@ import lwjglutils.OGLBuffers;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.lwjgl.opengl.GL11.GL_TRIANGLE_STRIP;
+import static org.lwjgl.opengl.GL40.GL_PATCHES;
 
 public class TerrainGrid {
     private List<SubGrid> subs;
@@ -97,7 +97,7 @@ public class TerrainGrid {
                     new OGLBuffers.Attrib("inPosition", 2)};
 
             buffers = new OGLBuffers(vertex, attributes, index);
-            topology = GL_TRIANGLE_STRIP;
+            topology = GL_PATCHES;
         }
 
         public void unbind() {

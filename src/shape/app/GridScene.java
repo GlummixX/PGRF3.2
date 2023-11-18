@@ -26,6 +26,8 @@ import java.util.List;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL20.*;
+import static org.lwjgl.opengl.GL40.GL_PATCH_VERTICES;
+import static org.lwjgl.opengl.GL40.glPatchParameteri;
 
 enum Mode {
     Fill, Lines, Dots;
@@ -224,6 +226,7 @@ public class GridScene extends AbstractRenderer {
 
         grid = new TerrainGrid(100,100F);
         glEnable(GL_DEPTH_TEST);
+        glPatchParameteri(GL_PATCH_VERTICES, 4);
     }
 
     @Override
