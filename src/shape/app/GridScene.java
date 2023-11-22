@@ -45,7 +45,7 @@ public class GridScene extends AbstractRenderer {
     Character character = new Character(new Camera().withPosition(new Vec3D(0, 0, 128.)).withZenith(-0.4), "res/map.bmp");
     Mat4 proj = new Mat4PerspRH(Math.toRadians(100), (double) height / width, 0.01, 500.);
     int shaderProgram;
-    int tes = 23;
+    int tes = 21;
     private boolean renderDocDebug;
     private boolean changeScene = false;
     private HashMap<String, Integer> gridShaders;
@@ -68,11 +68,11 @@ public class GridScene extends AbstractRenderer {
         gridShaders = new HashMap<>();
 
         info = new HashMap<>();
-        info.put("gravity", new ArrayList<>(List.of("Gravity:", String.valueOf(character.isGravity()))));
-        info.put("maxTess", new ArrayList<>(List.of("Max Tesselation:", String.valueOf(tes))));
+        info.put("gravity", new ArrayList<>(List.of("[G] Gravity:", String.valueOf(character.isGravity()))));
+        info.put("maxTess", new ArrayList<>(List.of("[+/-] Max Tesselation:", String.valueOf(tes))));
         info.put("mode", new ArrayList<>(List.of("[M] Render mode:", "")));
         info.put("projection", new ArrayList<>(List.of("[P] Projection:", "")));
-        info.put("speed", new ArrayList<>(List.of("Zoom:", "32")));
+        info.put("speed", new ArrayList<>(List.of("[MWH] Zoom:", "32")));
 
         info.get("mode").set(1, mode.toString());
         info.get("projection").set(1, persp ? "Persp" : "Ortho");

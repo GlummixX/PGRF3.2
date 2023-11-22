@@ -4,83 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1919dcac-9130-43f7-b393-12c9d53bd977" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PGRF3.2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setting.cap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings_desktop.cap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shaders/terrain.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shaders/terrain.vert" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/annotations/NotNull.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/annotations/Nullable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLBuffers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLModelOBJ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLRenderTarget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTexImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTexImageByte.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTexImageFloat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTextRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTexture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTexture2D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTextureCube.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLTextureVolume.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/OGLUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/ShaderUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/ToFloatArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lwjglutils/ToIntArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/app/GridScene.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/global/AbstractRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/global/GLCamera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/global/GluUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/global/GlutUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/global/LwjglWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/model/Axis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/model/Cube.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/model/TerrainGrid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/utils/AveragingCircularBuffer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/utils/FpsLimiter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/utils/Mode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape/utils/SceneEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Bicubic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Camera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Col.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Compare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Cubic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3Identity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3Rot2D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3RotX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3RotY.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3RotZ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3Scale2D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat3Transl2D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4Identity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4OrthoRH.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4PerspRH.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4Rot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4RotX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4RotXYZ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4RotY.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4RotZ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4Scale.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4Transl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Mat4ViewRH.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Point2D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Point3D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Quat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Vec1D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Vec2D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transforms/Vec3D.java" afterDir="false" />
+    <list default="true" id="1919dcac-9130-43f7-b393-12c9d53bd977" name="Changes" comment="tessell">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shape/app/GridScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/app/GridScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,17 +25,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="shape.Main" />
@@ -139,6 +65,41 @@
       <option name="presentableId" value="Default" />
       <updated>1700038487811</updated>
     </task>
+    <task id="LOCAL-00001" summary="PGRF3.1 + dynamic tests">
+      <created>1700058674531</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700058674531</updated>
+    </task>
+    <task id="LOCAL-00002" summary="intelij ignored my suff">
+      <created>1700058728019</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700058728019</updated>
+    </task>
+    <task id="LOCAL-00003" summary="tessell">
+      <created>1700304096040</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700304096040</updated>
+    </task>
+    <task id="LOCAL-00004" summary="tessell">
+      <created>1700311283648</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1700311283648</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="PGRF3.1 + dynamic tests" />
+    <MESSAGE value="intelij ignored my suff" />
+    <MESSAGE value="tessell" />
+    <option name="LAST_COMMIT_MESSAGE" value="tessell" />
   </component>
 </project>
